@@ -32,5 +32,5 @@ test('Get and update the first element', async t => {
 
     await t.expect(fetchedElement.system_name).eql(payload.system_name, 'O nome do sistema deve ser atualizado');
     await t.expect(fetchedElement.type).eql(payload.type, 'O tipo deve ser o mesmo');
-    await t.expect(fetchedElement.hdd_capacity).eql(payload.hdd_capacity, 'A capacidade de HDD deve ser a mesma');
+    await t.expect(fetchedElement.hdd_capacity).eql(payload.hdd_capacity, 'A capacidade de HDD deve ser a mesma!');
 });

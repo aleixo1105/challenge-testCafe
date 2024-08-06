@@ -11,7 +11,7 @@ const deviceTypeNoUnderline = deviceType.replace('_',' ');
 const deviceCapacity = '500'; // Certifique-se de que o formato está correto
 const deviceCapacityWithGB = deviceCapacity + " GB"; // Use to compare with Capacity in the WebSite
 
-fixture.skip`Device Creation`
+fixture`Device Creation`
     .page`http://localhost:3001/`; // Substitua pela URL da sua aplicação
 
 test('Should fill out and submit the device form', async t => {

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "testcafe chrome tests/back-end/*.js"
+    "test": "testcafe chrome tests/back-end/*.js tests/front-end/*.js"
   },
   "author": "",
   "license": "ISC",
