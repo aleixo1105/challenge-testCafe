@@ -39,7 +39,6 @@ export default class HomePage {
         // Itera sobre cada dispositivo e imprime informações
         for (let i = 0; i < count; i++) {
             
-            console.log('tentativa numero: ',i)
 
             const device = this.deviceMainBox.nth(i);
             const deviceName = await device.find('.device-name').innerText;
@@ -49,8 +48,6 @@ export default class HomePage {
             // Exibir informações do dispositivo para depuração
             console.log(`Dispositivo ${i}: Nome=${deviceName}, Tipo=${deviceType}, Capacidade=${deviceCapacity}`);
 
-            console.log('deviceType',deviceType);
-            console.log('type',type);
             // Verificar se o dispositivo corresponde ao nome, tipo e capacidade fornecidos
             if (deviceName === name && deviceType === type && deviceCapacity === capacity) {
                 return {
