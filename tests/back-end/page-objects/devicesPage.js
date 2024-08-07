@@ -11,9 +11,9 @@ export default class DevicePage {
             if (response.data && response.data.length > 0) {
                 return response.data[0];
             }
-            throw new Error('A lista está vazia');
+            throw new Error('List is empty!');
         } catch (error) {
-            console.error('Erro ao obter o primeiro elemento:', error);
+            console.error('Erro while trying to get the first element:', error);
             throw error;
         }
     }
@@ -24,9 +24,9 @@ export default class DevicePage {
             if (response.data && response.data.length > 0) {
                 return response.data[response.data.length - 1];
             }
-            throw new Error('A lista está vazia');
+            throw new Error('List is empty!');
         } catch (error) {
-            console.error('Erro ao obter o último elemento:', error);
+            console.error('Erro while trying to get the last element:', error);
             throw error;
         }
     }
@@ -36,7 +36,7 @@ export default class DevicePage {
             const response = await axios.put(`${this.baseUrl}/${elementId}`, payload);
             return response.data;
         } catch (error) {
-            console.error('Erro ao atualizar o elemento:', error);
+            console.error('Erro while trying to update element:', error);
             throw error;
         }
     }
@@ -46,7 +46,7 @@ export default class DevicePage {
             const response = await axios.delete(`${this.baseUrl}/${elementId}`);
             return response.data;
         } catch (error) {
-            console.error('Erro ao deletar o elemento:', error);
+            console.error('Erro while trying to delete element:', error);
             throw error;
         }
     }
@@ -57,7 +57,7 @@ export default class DevicePage {
             const response = await axios.get(`${this.baseUrl}/${elementId}`);
             return response.data;
         } catch (error) {
-            console.error('Erro ao obter o elemento pelo ID:', error);
+            console.error('Erro while trying to get element By ID:', error);
             throw error;
         }
     }
