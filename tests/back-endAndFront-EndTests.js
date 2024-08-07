@@ -9,7 +9,7 @@ let devicesQuantityDom;
 let deviceListDom = [];
 
 
-fixture `API Test`
+fixture `Back-End and Front-End Tests`
 
 test('Get Device List - API', async t => {
     // Make an API request using fetch

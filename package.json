@@ -12,8 +12,6 @@
     "testcafe": "^3.6.2"
   },
   "dependencies": {
-    "axios": "^1.7.3",
-    "faker": "^6.6.6",
-    "uuid": "^10.0.0"
+    "axios": "^1.7.3"
   }
 }
