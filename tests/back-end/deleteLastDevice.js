@@ -5,17 +5,17 @@ const devicesPage = new DevicesPage();
 
 
 fixture `Device API Tests`
-    .page `http://localhost:8080`; // URL da sua aplicação de teste, se necessário
+    .page `http://localhost:8080`; // Application URL
 
     test('Get and update the last element', async t => {
-        // Obter o último elemento
+        // Get the las device on the list
         const lastElement = await devicesPage.getLastElement();
-        console.log('Último elemento:', lastElement);
+        console.log('Last element:', lastElement);
     
 
-        // Deletar o ultimo elemento
+        // Delete device
         const deleteElement = await devicesPage.deleteElement(lastElement.id);
-        console.log('Elemento deletado:', deleteElement);
+        console.log('Elementodeleted:', deleteElement);
 
 
 });

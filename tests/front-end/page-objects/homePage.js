@@ -2,41 +2,49 @@ import { Selector } from 'testcafe';
 
 export default class HomePage {
     constructor() {
-        this.deviceTypeSelect = Selector('#device_type');
-        this.sortBySelect = Selector('#sort_by');
-        this.addDeviceButton = Selector('.submitButton');
-        this.filtersContainer = Selector('.list-filters');
-        this.deviceList = Selector('.list-devices'); // Seletor para o container da lista de dispositivos        
-        this.deviceMainBox = Selector('.device-main-box'); // Seletor para um item da lista de dispositivos
+        this.filtersContainer = Selector('.list-filters');      // Selector -> List Filter device
+        this.deviceTypeSelect = Selector('#device_type');       // Selector -> Device-type
+        this.sortBySelect = Selector('#sort_by');               // Selector -> sort_by button(HDD Capacity)
+        this.addDeviceButton = Selector('.submitButton');       // Selector -> Add Device button
+        this.deviceList = Selector('.list-devices');            // Selector -> List Devices     
+        this.deviceMainBox = Selector('.device-main-box');      // Selector -> Each device
+        this.deviceEditButton = Selector('.device-edit');       // Selector -> Edit device
+        this.deviceRemoveButton = Selector('.device-remove');   // Selector -> Remove device
+        
+        
     }
- 
+    
+    //Open menu Device-Type
     async selectDeviceType(t, deviceType) {
         await t
-            .click(this.deviceTypeSelect) // Abre o menu suspenso
-            .click(this.deviceTypeSelect.find(`option[value="${deviceType}"]`)); // Seleciona a opção desejada
+            .click(this.deviceTypeSelect)
+            .click(this.deviceTypeSelect.find(`option[value="${deviceType}"]`));
     }
 
+    //Select Device-Type
     async selectSortBy(t, sortBy) {
         await t
-            .click(this.sortBySelect) // Abre o menu suspenso
-            .click(this.sortBySelect.find(`option[value="${sortBy}"]`)); // Seleciona a opção desejada
+            .click(this.sortBySelect)
+            .click(this.sortBySelect.find(`option[value="${sortBy}"]`));
     }
 
+    //Click -> Add Device Button
     async goToAddDevicePage(t) {
         await t.click(this.addDeviceButton);
     }
+
 
     async isFiltersVisible(t) {
         await t.expect(this.filtersContainer.exists).ok();
     }
 
-    // Método para encontrar o dispositivo pelo nome, tipo e capacidade
+    // Try Find Device on List 
     async findDevice(t, name, type, capacity) {
 
         const count = await this.deviceMainBox.count;
-        console.log('Número total de dispositivos:', count);
+        console.log('Number of Devices on list:', count);
 
-        // Itera sobre cada dispositivo e imprime informações
+        // Check device by device on list
         for (let i = 0; i < count; i++) {
             
 
@@ -45,10 +53,10 @@ export default class HomePage {
             const deviceType = await device.find('.device-type').innerText;
             const deviceCapacity = await device.find('.device-capacity').innerText;
 
-            // Exibir informações do dispositivo para depuração
-            console.log(`Dispositivo ${i}: Nome=${deviceName}, Tipo=${deviceType}, Capacidade=${deviceCapacity}`);
+            // Show information about device 
+            console.log(`Device ${i}: Nome=${deviceName}, Type=${deviceType}, Capacity=${deviceCapacity}`);
 
-            // Verificar se o dispositivo corresponde ao nome, tipo e capacidade fornecidos
+            // Check if all elements in device is equals
             if (deviceName === name && deviceType === type && deviceCapacity === capacity) {
                 return {
                     found: true,
