@@ -13,7 +13,7 @@ export default class HomePage {
         
         
     }
-    
+     
     //Open menu Device-Type
     async selectDeviceType(t, deviceType) {
         await t

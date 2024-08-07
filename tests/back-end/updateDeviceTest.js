@@ -4,7 +4,7 @@ const devicesPage = new DevicesPage();
 
 
 
-fixture `Device API Tests`
+fixture `Rename Device - Back-end`
     .page `http://localhost:8080`; // Application URL
 
 test('Get and update the first element', async t => {

@@ -66,12 +66,6 @@ test('Get devices list by Class Name - UI', async t => {
         const hdd_capacity_text = await deviceBox.find('.device-capacity').innerText;
         const hdd_capacity = hdd_capacity_text.replace(' GB', '');
 
-        /*// Imprime informações no console
-        console.log(`Dispositivo ${i + 1}:`);
-        console.log(`  Nome: ${system_name}`);
-        console.log(`  Tipo: ${type}`);
-        console.log(`  Capacidade: ${hdd_capacity}`);
-        console.log('--------------------------');*/
 
         // Adiciona o dispositivo à lista
         deviceListDom.push({
@@ -96,9 +90,6 @@ test('Compare Device List from API and UI', async t => {
         // Verifica se os dispositivos do DOM correspondem aos da API
         await t.expect(deviceListApiProcessed).eql(deviceListDom, 'Os dispositivos do DOM não correspondem aos dispositivos da API');
 
-        /*// Imprime informações para depuração
-        console.log('Dispositivos da API:', deviceListApi);
-        console.log('Dispositivos do DOM:', deviceListDom);*/
 
 });
 

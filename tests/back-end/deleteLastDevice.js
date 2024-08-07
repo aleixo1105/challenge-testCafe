@@ -1,13 +1,15 @@
 import  DevicesPage  from './page-objects/devicesPage';
+import HomePage from '../front-end/page-objects/homePage';
  
 
 const devicesPage = new DevicesPage();
+const homePage = new HomePage();
 
 
-fixture `Device API Tests`
+fixture `Delete Device - Back-End`
     .page `http://localhost:8080`; // Application URL
 
-    test('Get and update the last element', async t => {
+    test('Get and delete the last element', async t => {
         // Get the las device on the list
         const lastElement = await devicesPage.getLastElement();
         console.log('Last element:', lastElement);
@@ -19,3 +21,22 @@ fixture `Device API Tests`
 
 
 });
+
+/*test('Check if the device appears in the list', async t => {
+
+    // Fiding Device 
+    const searchResult = await homePage.findDevice(t, deviceName, deviceTypeNoUnderline, deviceCapacityWithGB);
+
+    if (searchResult.found) {
+        //Check if the device was found with the correct information
+        await t.expect(searchResult.device.exists).ok(`The Device ${deviceName} was found in the list`);
+        await t.expect(searchResult.device.find('.device-type').innerText).eql(deviceTypeNoUnderline, `Device type is incorrect: ${deviceType}`);
+        await t.expect(searchResult.device.find('.device-capacity').innerText).eql(deviceCapacityWithGB, `Device capacity is incorrect: ${deviceCapacity}`);
+        console.log('O dispositivo foi encontrado e está correto.');
+    }
+    else {
+
+        await t.expect(searchResult.found).ok(`Device ${deviceName}  ${deviceType}  ${deviceCapacityWithGB} was not found in the list with the correct information`);
+
+    }
+});*/
